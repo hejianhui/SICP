@@ -1,0 +1,5 @@
+#lang racket
+(define (for-each f l)
+    (cond ((not (null? l))
+                (f (car l))
+                            (for-each p (cdr l)))))
