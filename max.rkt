@@ -1,0 +1,8 @@
+(define (max l) 
+    (if(= (length l) 2)
+        (if(> (car l) (cdr l))
+            (car l) 
+            (cdr l)) 
+        (if (> (car l) (max (cdr l)))
+            (car l)
+            (max (cdr l)))))
