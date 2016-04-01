@@ -16,6 +16,10 @@
         (lambda (x y) (tag (/ x y))))
     (put 'make 'scheme-number
         (lambda (x) (tag x)))
+    (put 'zero 'scheme-number
+        (null? x)
+    (put 'equ? ('scheme-number 'scheme-number)
+        (lambda (x y) (= x y)))
 'done)
 
 (define (make-scheme-number n)
@@ -38,4 +42,8 @@
     (put 'mul '(rational rational) (lambda (x y) (tag sub-rat x y)))
     (put 'div '(rational rational) (lambda (x y) (tag div-rat x y)))
     (put 'make 'rational (lambda (n d) (tag (make-rat n d))))
+    (put 'equ '(rational rational) (lambda (x y) (and (= (car x) (car y)) (= (cdr x) (cdr y)))))  
+    (put 'zero 'rational lambda (n) (= (car n) 0))
 'done)
+
+
