@@ -1,0 +1,6 @@
+(define (make-monitored f)
+    (let ((times 0))
+        (lambda (x)
+            (cond ((eq? x 'how-many-calls) times)
+                  ((eq? x 'reset-count) (set! times 0))
+            (else (begin (set! times (+ times)) (f x)))))))

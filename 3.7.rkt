@@ -1,0 +1,5 @@
+(define (make-joint account passwd0 passwd1)
+    (lambda (passwd request)
+        (if (eq? passwd passwd1)
+            (account passwd0 request)
+            (error "wrong password!" passwd1))))
